@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+/*pragma solidity ^0.5.0;
 
 import {MentalPoker} from './MentalPoker.sol';
 import {SafeMath} from '../math/SafeMath.sol';
@@ -318,6 +318,6 @@ contract HighCardGameState {
         
         return state;
     }
-}
+}*/
 
 

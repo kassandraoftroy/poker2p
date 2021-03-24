@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+/*pragma solidity ^0.5.0;
 
 import {HighCardGameState} from './HighCardGameState.sol';
 import {IERC20} from '../token/IERC20.sol';
@@ -300,4 +300,4 @@ contract HeadsUpTables {
     function prefixedHash(bytes32 tableID, bytes32 sessionID, bytes32 txHash) internal pure returns (bytes32) {
         return keccak256(abi.encodePacked("\x19\x01", tableID, sessionID, txHash));
     }
-}
+}*/

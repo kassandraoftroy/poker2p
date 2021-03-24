@@ -15,6 +15,7 @@ contract MentalPoker {
           encodedCards[xvalues[i]] = cards[i];
       }
   }
+  
   function revealCard(uint256 x1, uint256 y1, uint256 key1, uint256 key2) public view returns (string memory, bool) {
       uint256 v1 = invMod(key1, ORDER);
       uint256 v2 = invMod(key2, ORDER);
@@ -30,37 +31,6 @@ contract MentalPoker {
   
   function pointMultiply(uint256 x, uint256 y, uint256 scalar) public pure returns (uint256 qx, uint256 qy) {
       (qx, qy) = ecMul(scalar, x, y, AA, PP);
-  }
-
-  function highCard(string memory card1, string memory card2) public view returns (string memory, bool) {
-      if (cardEqual(card1, card2)) {
-          return ("", false);
-      }
-      uint256 c1idx;
-      uint256 c2idx;
-      for (uint i=0; i<cards.length; i++) {
-          if (cardEqual(card1, cards[i])) {
-              c1idx = i+1;
-          }
-          if (cardEqual(card2, cards[i])) {
-              c2idx = i+1;
-          }
-          if (c1idx > 0 && c2idx > 0) {
-              break;
-          }
-      }
-      if (c1idx == 0 || c2idx == 0)  {
-          return ("", false);
-      }
-      if (c1idx > c2idx) {
-          return (card1, true);
-      } else {
-          return (card2, true);
-      }
-  }
-  
-  function cardEqual(string memory card1, string memory card2) public pure returns (bool) {
-      return keccak256(bytes(card1)) == keccak256(bytes(card2));
   }
   
   function isNil (string memory str) internal pure returns (bool) {
